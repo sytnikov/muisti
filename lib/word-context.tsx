@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * React hooks and context for word management
  */
