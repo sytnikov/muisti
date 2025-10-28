@@ -1,5 +1,10 @@
+import { WordProvider } from "@/lib/word-context";
 import WordApp from "@/components/word-app";
 
 export default function Home() {
-  return <WordApp />;
+  return (
+    <WordProvider>
+      <WordApp />
+    </WordProvider>
+  );
 }

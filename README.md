@@ -43,11 +43,13 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### Testing
 
 Run unit tests:
+
 ```bash
 pnpm test
 ```
 
 Run e2e tests:
+
 ```bash
 pnpm test:e2e
 ```
