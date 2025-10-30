@@ -4,13 +4,7 @@
  * React hooks and context for word management
  */
 
-import {
-  createContext,
-  useContext,
-  useReducer,
-  ReactNode,
-  useEffect,
-} from 'react'
+import { createContext, useContext, useReducer, ReactNode } from 'react'
 
 export interface WordEntry {
   id: string
@@ -69,7 +63,7 @@ function wordReducer(state: WordState, action: WordAction): WordState {
         words: [...state.words, newWord],
         inputValue: '',
         error: '',
-        isLoading: true,
+        output: '', // Clear previous story when adding new words
       }
     }
 
@@ -78,7 +72,7 @@ function wordReducer(state: WordState, action: WordAction): WordState {
       return {
         ...state,
         words: filteredWords,
-        isLoading: true,
+        output: '', // Clear previous story when removing words
       }
     }
 
@@ -156,24 +150,6 @@ const WordContext = createContext<WordContextType | undefined>(undefined)
 export function WordProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(wordReducer, initialState)
 
-  // Generate story when words change
-  useEffect(() => {
-    if (state.words.length > 0 && state.isLoading) {
-      generateStory(state.words)
-        .then((story) => {
-          dispatch({ type: 'SET_OUTPUT', payload: story })
-          dispatch({ type: 'SET_LOADING', payload: false })
-        })
-        .catch((error) => {
-          dispatch({
-            type: 'SET_ERROR',
-            payload: `Failed to generate story: ${error.message}`,
-          })
-          dispatch({ type: 'SET_LOADING', payload: false })
-        })
-    }
-  }, [state.words, state.isLoading])
-
   const addWord = (word: string) => {
     dispatch({ type: 'ADD_WORD', payload: word })
   }
@@ -186,8 +162,28 @@ export function WordProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'SET_INPUT', payload: value })
   }
 
-  const generateText = () => {
-    dispatch({ type: 'GENERATE_TEXT' })
+  const generateText = async () => {
+    if (state.words.length === 0) {
+      dispatch({ type: 'SET_ERROR', payload: 'Please add some words first' })
+      return
+    }
+
+    dispatch({ type: 'SET_LOADING', payload: true })
+    dispatch({ type: 'CLEAR_ERROR' })
+
+    try {
+      const story = await generateStory(state.words)
+      dispatch({ type: 'SET_OUTPUT', payload: story })
+    } catch (error) {
+      dispatch({
+        type: 'SET_ERROR',
+        payload: `Failed to generate story: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`,
+      })
+    } finally {
+      dispatch({ type: 'SET_LOADING', payload: false })
+    }
   }
 
   const clearError = () => {

@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
 
     const wordsList = words.join(', ')
 
-    const prompt = `Create a simple, engaging story in English at A1.2 level (beginner-intermediate) that naturally incorporates these words: ${wordsList}.
+    const prompt = `Create a simple, engaging story in Finnish at A1.2 level (beginner-intermediate) that naturally incorporates these words: ${wordsList}.
 
 Requirements:
 - Use simple vocabulary and short sentences

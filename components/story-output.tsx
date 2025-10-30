@@ -34,7 +34,7 @@ export default function StoryOutput() {
               variant="outline"
               className="border-2 border-black hover:bg-gray-100"
             >
-              Regenerate
+              {state.output ? 'Regenerate' : 'Generate Story'}
             </Button>
           )}
         </div>
@@ -63,6 +63,18 @@ export default function StoryOutput() {
             <p className="text-gray-900 leading-relaxed text-lg whitespace-pre-wrap">
               {state.output}
             </p>
+          ) : state.words.length > 0 ? (
+            <div className="text-center">
+              <p className="text-gray-600 mb-4">
+                You have {state.words.length} word
+                {state.words.length === 1 ? '' : 's'} ready for story
+                generation.
+              </p>
+              <p className="text-gray-500 text-sm">
+                Click Generate Story above to create an AI-powered story using
+                your words.
+              </p>
+            </div>
           ) : (
             <p className="text-gray-400 italic">
               Add words above to generate a story...
