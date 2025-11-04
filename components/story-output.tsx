@@ -18,6 +18,25 @@ export default function StoryOutput() {
     generateText()
   }, [generateText])
 
+  // Convert markdown bold syntax (**text**) to HTML bold tags
+  const renderStoryWithBold = (text: string) => {
+    // Split by markdown bold syntax while preserving the matches
+    const parts = text.split(/(\*\*[^*]+\*\*)/g)
+    return parts.map((part, index) => {
+      // Check if this part is a bold markdown pattern
+      if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+        const boldText = part.slice(2, -2)
+        return (
+          <strong key={index} className="font-bold">
+            {boldText}
+          </strong>
+        )
+      }
+      // Return regular text, preserving line breaks
+      return <span key={index}>{part}</span>
+    })
+  }
+
   return (
     <Card className="bg-white text-black border-2 border-black">
       <CardHeader>
@@ -61,7 +80,7 @@ export default function StoryOutput() {
             </div>
           ) : state.output ? (
             <p className="text-gray-900 leading-relaxed text-lg whitespace-pre-wrap">
-              {state.output}
+              {renderStoryWithBold(state.output)}
             </p>
           ) : state.words.length > 0 ? (
             <div className="text-center">

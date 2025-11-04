@@ -18,6 +18,7 @@ interface WordState {
   output: string
   error: string
   isLoading: boolean
+  selectedModel: string
 }
 
 type WordAction =
@@ -30,6 +31,7 @@ type WordAction =
   | { type: 'CLEAR_INPUT' }
   | { type: 'GENERATE_TEXT' }
   | { type: 'SET_LOADING'; payload: boolean }
+  | { type: 'SET_MODEL'; payload: string }
 
 const initialState: WordState = {
   words: [],
@@ -37,6 +39,7 @@ const initialState: WordState = {
   output: '',
   error: '',
   isLoading: false,
+  selectedModel: 'gpt-3.5-turbo',
 }
 
 function wordReducer(state: WordState, action: WordAction): WordState {
@@ -97,6 +100,9 @@ function wordReducer(state: WordState, action: WordAction): WordState {
     case 'SET_LOADING':
       return { ...state, isLoading: action.payload }
 
+    case 'SET_MODEL':
+      return { ...state, selectedModel: action.payload }
+
     default:
       return state
   }
@@ -105,7 +111,10 @@ function wordReducer(state: WordState, action: WordAction): WordState {
 /**
  * Generate story using OpenAI API
  */
-async function generateStory(words: WordEntry[]): Promise<string> {
+async function generateStory(
+  words: WordEntry[],
+  model: string
+): Promise<string> {
   const wordArray = words.map((w) => w.word)
 
   if (wordArray.length === 0) {
@@ -118,7 +127,7 @@ async function generateStory(words: WordEntry[]): Promise<string> {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ words: wordArray }),
+      body: JSON.stringify({ words: wordArray, model }),
     })
 
     if (!response.ok) {
@@ -143,6 +152,7 @@ interface WordContextType {
   setInputValue: (value: string) => void
   generateText: () => void
   clearError: () => void
+  setModel: (model: string) => void
 }
 
 const WordContext = createContext<WordContextType | undefined>(undefined)
@@ -172,7 +182,7 @@ export function WordProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'CLEAR_ERROR' })
 
     try {
-      const story = await generateStory(state.words)
+      const story = await generateStory(state.words, state.selectedModel)
       dispatch({ type: 'SET_OUTPUT', payload: story })
     } catch (error) {
       dispatch({
@@ -190,6 +200,10 @@ export function WordProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'CLEAR_ERROR' })
   }
 
+  const setModel = (model: string) => {
+    dispatch({ type: 'SET_MODEL', payload: model })
+  }
+
   return (
     <WordContext.Provider
       value={{
@@ -199,6 +213,7 @@ export function WordProvider({ children }: { children: ReactNode }) {
         setInputValue,
         generateText,
         clearError,
+        setModel,
       }}
     >
       {children}
