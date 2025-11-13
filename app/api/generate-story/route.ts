@@ -51,11 +51,12 @@ CRITICAL REQUIREMENTS:
 - Write the story ENTIRELY in English
 - Embed the Finnish words naturally into the English sentences
 - Format each Finnish word in bold using **word** markdown syntax (e.g., **köyhä**)
-- UNIVERSAL RULE (applies to EVERY Finnish word): On first use, immediately provide a concise, descriptive explanation in the SAME sentence, directly after the Finnish word, as an appositive phrase (using comma, em dash —, or parentheses). Do not start a new sentence before explaining.
+- UNIVERSAL RULE (applies to EVERY Finnish word): On first use, immediately provide a concise, naturally embedded descriptive gloss in the SAME sentence, directly after the Finnish word. Prefer graceful integration (appositive with comma, short relative clause “which/that…”, brief participial or prepositional phrase, or parentheses). Do not start a new sentence before explaining.
 - DO NOT provide explicit translations or state what the word means directly (avoid patterns like "means", "is called", "is the word for")
 - NEVER use the English translation of the Finnish word in the same sentence or immediately after introducing the Finnish word
 - AVOID using obvious near-synonyms that trivially reveal the translation (e.g., 'rest', 'weightlifting', 'boxing', 'train', 'nose'). Instead, use an operational or functional description.
-- The explanation must make the meaning clear through role, function, effects, outcomes, or actions—without naming the English word.
+- Make the gloss sound natural, not robotic: vary phrasing across words, avoid repeating the same pattern, and keep the gloss brief (about 4–12 words).
+- The explanation must make the meaning clear through role, function, effects, outcomes, or actions—without naming the English word or using meta-linguistic terms (“noun/verb/adjective”, “this word”).
 - Use words ONLY in their direct, literal meaning - never use them metaphorically or figuratively
 - For VERBS: When introducing a verb for the first time, use it as the main action after the subject (e.g., "The dog **purra** her" not "she gets purra")
 - For NOUNS: Provide enough context so the reader understands what the object/item is (e.g., for "huulipuna", describe it as something used on lips that adds color)
@@ -64,22 +65,22 @@ CRITICAL REQUIREMENTS:
 - Keep it between 100-200 words
 - Use present tense when possible
 
-EXPLANATION PATTERNS (use structure only; do not insert English translations):
+STYLE PATTERNS (use structure only; vary naturally; do not insert English translations):
 
 Noun (appositive in same sentence):
-"He touched his **<FinnishNoun>**, the part of the face used for smelling and breathing."
+"He touched his **<FinnishNoun>**, a part used for smelling and breathing."
 
 Adjective (attribute + consequence/context):
-"She is **<FinnishAdjective>**, so she cannot buy new clothes and must save every coin."
+"She is **<FinnishAdjective>**, which forces her to save every coin."
 
 Verb (main action + effect/result):
-"The dog **<FinnishVerb>** her hand, making sharp teeth press into the skin and cause pain."
+"The dog **<FinnishVerb>** her hand, leaving teeth pressing into skin and pain."
 
 Activity (operational description):
-"They practice **<FinnishActivity>** at the gym—lifting heavy objects again and again as a sport to become stronger."
+"They practice **<FinnishActivity>** at the gym—lifting heavy objects again and again to build strength."
 
 Resting (operational description):
-"After work, they **<FinnishRestVerb>**, stopping all activity for a while so the body and mind can recover energy."
+"After work, they **<FinnishRestVerb>**, pausing all activity so energy returns."
 
 NOTICE:
 - The story is in English
