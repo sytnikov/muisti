@@ -51,11 +51,11 @@ CRITICAL REQUIREMENTS:
 - Write the story ENTIRELY in English
 - Embed the Finnish words naturally into the English sentences
 - Format each Finnish word in bold using **word** markdown syntax (e.g., **köyhä**)
-- When you use each Finnish word for the first time, immediately follow it with a detailed explanation sentence that provides clear context about what the word means
+- UNIVERSAL RULE (applies to EVERY Finnish word): On first use, immediately provide a concise, descriptive explanation in the SAME sentence, directly after the Finnish word, as an appositive phrase (using comma, em dash —, or parentheses). Do not start a new sentence before explaining.
 - DO NOT provide explicit translations or state what the word means directly (avoid patterns like "means", "is called", "is the word for")
 - NEVER use the English translation of the Finnish word in the same sentence or immediately after introducing the Finnish word
-- AVOID using obvious near-synonyms that trivially reveal the translation. Instead, use an operational, descriptive explanation.
-- The explanation sentence must provide enough context so the reader can understand the meaning through examples, descriptions, outcomes, or actions
+- AVOID using obvious near-synonyms that trivially reveal the translation (e.g., 'rest', 'weightlifting', 'boxing', 'train', 'nose'). Instead, use an operational or functional description.
+- The explanation must make the meaning clear through role, function, effects, outcomes, or actions—without naming the English word.
 - Use words ONLY in their direct, literal meaning - never use them metaphorically or figuratively
 - For VERBS: When introducing a verb for the first time, use it as the main action after the subject (e.g., "The dog **purra** her" not "she gets purra")
 - For NOUNS: Provide enough context so the reader understands what the object/item is (e.g., for "huulipuna", describe it as something used on lips that adds color)
@@ -64,27 +64,28 @@ CRITICAL REQUIREMENTS:
 - Keep it between 100-200 words
 - Use present tense when possible
 
-EXAMPLE FORMATS:
+EXPLANATION PATTERNS (use structure only; do not insert English translations):
 
-For adjectives (like "köyhä"):
-"Kaisa was really **köyhä**. She didn't have a lot of money and couldn't afford new clothes."
+Noun (appositive in same sentence):
+"He touched his **<FinnishNoun>**, the part of the face used for smelling and breathing."
 
-For nouns (like "huulipuna"):
-"Sofia puts **huulipuna** on her lips. The colorful stick makes her smile look brighter."
+Adjective (attribute + consequence/context):
+"She is **<FinnishAdjective>**, so she cannot buy new clothes and must save every coin."
 
-For verbs (like "purra"):
-"The dog **purra** Sofia's hand. Sharp teeth sink into her skin, and she feels pain."
+Verb (main action + effect/result):
+"The dog **<FinnishVerb>** her hand, making sharp teeth press into the skin and cause pain."
 
-For activities (like "bodaaminen"):
-"Lauri starts **bodaaminen** at the gym. He lifts very heavy objects again and again as a sport to become stronger."
+Activity (operational description):
+"They practice **<FinnishActivity>** at the gym—lifting heavy objects again and again as a sport to become stronger."
 
-For resting (like "levätä"):
-"After work, Lauri likes to **levätä**. He stops all activity for a while so his body and mind can recover their energy."
+Resting (operational description):
+"After work, they **<FinnishRestVerb>**, stopping all activity for a while so the body and mind can recover energy."
 
 NOTICE:
 - The story is in English
 - Finnish words are formatted in bold using **word**
-- The explanation provides clear context without using the English translation or obvious near-synonyms (e.g., avoid 'weightlifting' for "bodaaminen", avoid 'rest/relax' for "levätä")
+- The explanation appears immediately after the Finnish word in the same sentence, as an appositive phrase
+- The explanation provides clear context without using the English translation or obvious near-synonyms
 - No direct translations appear (avoid "wrinkled skin" right after "ryppyinen iho")
 - Verbs are used as main actions after subjects
 - Words are used in their literal, direct meaning
